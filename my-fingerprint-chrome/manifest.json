@@ -1,0 +1,57 @@
+{
+  "manifest_version": 3,
+  "version": "2.5.1",
+  "name": "My Fingerprint",
+  "default_locale": "en",
+  "description": "__MSG_ext_desc__",
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "icons": {
+    "128": "logo.png"
+  },
+  "action": {
+    "default_popup": "src/popup/index.html"
+  },
+  "web_accessible_resources": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "resources": [
+        "assets/runtime-2dd7245f.js",
+        "assets/content.ts-bd077913.js"
+      ],
+      "use_dynamic_url": false
+    }
+  ],
+  "minimum_chrome_version": "102",
+  "permissions": [
+    "storage",
+    "tabs",
+    "activeTab",
+    "webNavigation",
+    "scripting",
+    "declarativeNetRequest",
+    "clipboardRead",
+    "clipboardWrite",
+    "userScripts"
+  ],
+  "background": {
+    "service_worker": "service-worker-loader.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "assets/content.ts-loader-80041a71.js"
+      ],
+      "world": "ISOLATED",
+      "matches": [
+        "<all_urls>"
+      ],
+      "run_at": "document_start",
+      "match_about_blank": true
+    }
+  ]
+}
